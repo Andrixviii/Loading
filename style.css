@@ -1,0 +1,96 @@
+/*Some parts of this code were adapted from uiverse.io oleh AbanoubMagdy1 */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Pastikan body dan html juga menutupi seluruh layar */
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Tinggi penuh sesuai viewport */
+  width: 100vw;  /* Lebar penuh sesuai viewport */
+  background-color: #121d24; /* Warna background */
+  overflow: hidden; /* Mencegah elemen meluap keluar */
+}
+
+.loader {
+  --dim: 5rem; /* Perbesar ukuran untuk efek lebih terlihat */
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  animation: rotate 2s linear infinite;
+}
+
+.loader .circle {
+  --color: #ffffff; /* Warna biru untuk lingkaran */
+  --dim: 1.5rem; /* Ukuran lingkaran */
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(199, 199, 199, 0.7); /* Efek cahaya lembut */
+  transform-origin: center; /* Pastikan setiap lingkaran bergerak secara terpusat */
+}
+
+.loader .circle:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader .circle:nth-child(2) {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.loader .circle:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader .circle:nth-child(4) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg) scale(1.3); /* Perbesar dan putar */
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1); /* Kembali ke ukuran normal */
+  }
+
+  75% {
+    transform: rotate(270deg) scale(1.3); /* Perbesar dan putar */
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1); /* Kembali ke awal */
+  }
+}
+
+@keyframes circleAnimation {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
